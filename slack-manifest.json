@@ -1,0 +1,33 @@
+{
+  "display_information": {
+    "name": "RenderPulse",
+    "description": "Track 3D model generation jobs directly from Slack.",
+    "background_color": "#0F172A",
+    "long_description": "RenderPulse securely retrieves Image-to-3D render job status from a controlled Slack channel. Your 3D renders. One command away."
+  },
+  "features": {
+    "bot_user": {
+      "display_name": "RenderPulse",
+      "always_online": false
+    },
+    "slash_commands": [
+      {
+        "command": "/model-status",
+        "url": "https://REPLACE-WITH-YOUR-DEPLOYED-ENDPOINT.m.pipedream.net",
+        "description": "Retrieve the status of a 3D render",
+        "usage_hint": "<render_id> or help",
+        "should_escape": false
+      }
+    ]
+  },
+  "oauth_config": {
+    "scopes": {
+      "bot": ["commands", "chat:write"]
+    }
+  },
+  "settings": {
+    "org_deploy_enabled": false,
+    "socket_mode_enabled": false,
+    "token_rotation_enabled": false
+  }
+}

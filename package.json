@@ -1,0 +1,20 @@
+{
+  "name": "renderpulse",
+  "version": "1.0.0",
+  "description": "Secure Slack slash command for retrieving Image-to-3D render status.",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "lint": "node scripts/check.mjs",
+    "test": "node --test",
+    "coverage": "node --test --experimental-test-coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AsimAslah/RenderPulse.git"
+  },
+  "license": "MIT"
+}

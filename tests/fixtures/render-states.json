@@ -1,0 +1,6 @@
+[
+  { "render_id": "R1001", "status": "queued" },
+  { "render_id": "R1002", "status": "processing" },
+  { "render_id": "R1003", "status": "completed", "model_format": "GLB" },
+  { "render_id": "R1004", "status": "failed" }
+]

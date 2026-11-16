@@ -1,0 +1,23 @@
+name: Bug report
+description: Report a reproducible RenderPulse defect without sensitive data
+title: "bug: "
+body:
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Observed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed tokens, signatures, response URLs, raw payloads, model URLs, and personal data.
+          required: true

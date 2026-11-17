@@ -22,5 +22,5 @@ The success response must show a real status lookup in the sandbox, not a fixtur
 
 ## Readiness
 
-Repository implementation and local automated verification are complete. Submission is not ready until the account owner completes Slack/Pipedream installation, deploys Image-to-3D with the status extension, verifies live raw-body handling and latency, produces the authentic Slack response, and confirms CI on the pull requests.
+Repository implementation, local automated verification, Slack installation, Pipedream deployment, live raw-body signature acceptance, controlled-channel rejection, backend bearer authentication, and the private help response are complete. Submission is not ready until a real render-status response is captured, acknowledgement latency is measured, the redacted evidence set is produced, and CI passes on the release pull request.
 

@@ -17,6 +17,15 @@ function rawBodyFrom(event) {
   throw new Error("Pipedream did not expose the original raw request body; signature verification cannot continue safely.");
 }
 
+function headersFrom(event) {
+  const input = event.headers || {};
+  const pairs = Array.isArray(input)
+    ? Array.from({ length: Math.floor(input.length / 2) }, (_, index) => input.slice(index * 2, index * 2 + 2))
+    : Object.entries(input);
+
+  return Object.fromEntries(pairs.map(([key, value]) => [String(key).toLowerCase(), String(value)]));
+}
+
 function verifySignature(rawBody, headers, secret) {
   const timestamp = headers["x-slack-request-timestamp"];
   const signature = headers["x-slack-signature"];
@@ -113,7 +122,7 @@ async function getRender(baseUrl, apiKey, renderId, command, timeoutMs) {
 export default defineComponent({
   async run({ steps, $ }) {
     const event = steps.trigger.event;
-    const headers = Object.fromEntries(Object.entries(event.headers || {}).map(([key, value]) => [key.toLowerCase(), String(value)]));
+    const headers = headersFrom(event);
     const rawBody = rawBodyFrom(event);
     const signingSecret = env("SLACK_SIGNING_SECRET");
     if (!verifySignature(rawBody, headers, signingSecret)) {

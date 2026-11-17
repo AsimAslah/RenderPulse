@@ -24,7 +24,9 @@ Verify `/health`, then test the status endpoint with a real completed ID. Do not
 8. Deploy the workflow. Saved drafts are not live deployments.
 9. Copy the live HTTPS trigger URL into the Slack slash command.
 
-The workflow calls `await $.respond({ immediate: true, status: 200, body: "" })` after authentication/context validation and before backend work. Raw-body availability and response latency must still be verified in the actual account; this repository does not claim that deployment occurred.
+In Pipedream's raw-request event shape, `event.headers` may be a flat alternating array of header names and values instead of an object. The checked-in workflow normalizes both representations before looking up Slack's timestamp and signature headers. Do not replace this with parsed-body verification.
+
+The workflow calls `await $.respond({ immediate: true, status: 200, body: "" })` after authentication/context validation and before backend work. The live account has verified raw-body signature acceptance, controlled-channel rejection, and the private help response. Response latency and real render-state handling still require measured evidence before a stable release.
 
 ## Verification
 

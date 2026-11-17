@@ -34,5 +34,16 @@ Signature validity/tampering/expiry, raw-body enforcement, command parsing, rend
 5. Confirm `invalid_auth`, `missing_scope`, and `not_in_channel` are observable in sanitized workflow diagnostics.
 6. Capture only the authentic redacted evidence listed in `HANDSHAKE_SUBMISSION.md`.
 
-Live Pipedream/Slack end-to-end results are pending account-owner deployment and are deliberately not fabricated here.
+## Verified live checks
+
+Verified in the RenderPulse developer workspace on 17 November 2026:
+
+- The Slack app is installed and present in the controlled `#all-renderpulse` channel.
+- Pipedream workflow v9 is active with the raw-request trigger and custom workflow response enabled.
+- `/model-status help` completed end to end and returned the expected private usage message from the RenderPulse app.
+- A correctly signed production probe using an intentionally non-allowed channel reached context authorization and returned HTTP `403`; the same request returned `401` before the Pipedream flat-header normalization fix.
+- Slack `auth.test` accepted the installed bot token for the RenderPulse workspace.
+- The deployed Supabase status endpoint accepted the rotated bearer key and returned HTTP `404` for an intentionally unknown render ID.
+
+These checks do not claim a real queued, processing, completed, or failed render response, nor do they establish measured Slack acknowledgement latency. Those items and the redacted screenshot evidence remain pending release gates.
 
